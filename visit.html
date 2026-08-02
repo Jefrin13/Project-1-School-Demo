@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Campus Visit — Your School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,800;9..144,1,400;9..144,1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="visit.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="demo.html">
+    <span class="logo-mark">YS</span>
+    Your<em>School</em>
+  </a>
+  <div class="nav-links">
+    <a href="demo.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="demo.html#academics">Academics</a>
+    <a href="demo.html#activities">Life @ School</a>
+    <a href="demo.html#facilities">Campus</a>
+    <a href="admissions.html" class="nav-cta">Admissions</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Come see the <em>campus</em> for yourself.</h1>
+    <p class="lead">Pictures and brochures only tell half the story. Walk our corridors, sit in on a class, and meet the teachers who'll be with your child every day.</p>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="container">
+    <span class="sec-eyebrow">Why visit</span>
+    <div class="why-grid">
+      <div class="why-card"><span class="why-ico">&#x1F3EB;</span><h4>See real classrooms</h4><p>Walk through active classrooms, labs and studios &mdash; not a staged showroom.</p></div>
+      <div class="why-card"><span class="why-ico">&#x1F464;</span><h4>Meet the faculty</h4><p>Talk directly with teachers from your child's grade and subject stream.</p></div>
+      <div class="why-card"><span class="why-ico">&#x2753;</span><h4>Ask anything</h4><p>Fees, transport, curriculum, admissions &mdash; get straight answers on the spot.</p></div>
+      <div class="why-card"><span class="why-ico">&#x1F551;</span><h4>Takes 30&ndash;40 mins</h4><p>A relaxed, guided walkthrough that fits around your schedule.</p></div>
+    </div>
+
+    <span class="sec-eyebrow">Schedule your visit</span>
+    <div class="visit-wrap">
+      <div class="visit-info">
+        <h3>Plan your visit</h3>
+        <p>Tours run Monday to Saturday during school hours. We recommend booking at least a day in advance so we can arrange a faculty member to walk you through your child's grade.</p>
+        <div class="crow"><div class="crow-ico">&#x1F4CD;</div><div><div class="crow-label">Campus address</div><div class="crow-val">15/53B Periya villai, Alanchi &ndash; 629159</div></div></div>
+        <div class="crow"><div class="crow-ico">&#x260E;&#xFE0F;</div><div><div class="crow-label">Call to confirm</div><div class="crow-val">+91 82201 48089</div></div></div>
+        <div class="crow"><div class="crow-ico">&#x1F550;</div><div><div class="crow-label">Visiting hours</div><div class="crow-val">Mon &ndash; Sat, 9:00 AM &ndash; 3:00 PM</div></div></div>
+      </div>
+      <div class="form-msg" id="visit-form-msg" style="display:none;padding:12px 14px;border-radius:10px;margin-bottom:14px;font-size:14px;"></div>
+      <form class="visit-form" id="visit-form">
+        <div class="form-row">
+          <div><label>Parent Name *</label><input type="text" id="v-parent-name" required placeholder="Your full name"></div>
+          <div><label>Phone *</label><input type="tel" id="v-phone" required placeholder="+91 ..."></div>
+        </div>
+        <div class="form-field"><label>Email *</label><input type="email" id="v-email" required placeholder="you@example.com"></div>
+        <div class="form-row">
+          <div><label>Child's Class *</label>
+            <select required id="v-child-class">
+              <option value="">Select...</option>
+              <option>Pre-KG / LKG / UKG</option>
+              <option>Class 1 &ndash; 5</option>
+              <option>Class 6 &ndash; 8</option>
+              <option>Class 9 &ndash; 10</option>
+              <option>Class 11 &ndash; 12</option>
+            </select>
+          </div>
+          <div><label>Number of Visitors</label>
+            <select id="v-num-visitors">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div><label>Preferred Date *</label><input type="date" id="v-date" required></div>
+          <div><label>Preferred Time *</label>
+            <select required id="v-time">
+              <option value="">Select...</option>
+              <option>9:00 AM &ndash; 10:00 AM</option>
+              <option>10:00 AM &ndash; 11:00 AM</option>
+              <option>11:00 AM &ndash; 12:00 PM</option>
+              <option>1:00 PM &ndash; 2:00 PM</option>
+              <option>2:00 PM &ndash; 3:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field"><label>Anything you'd like us to prepare for?</label><textarea id="v-notes" placeholder="e.g. specific questions, a particular class you'd like to observe..."></textarea></div>
+        <button type="submit" class="submit-btn" id="visit-submit-btn">Confirm my visit &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand">Your<em>School</em>.</div>
+      <p class="foot-desc">A Matriculation co-educational school nurturing curious minds and kind humans since 1995.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <a href="demo.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="demo.html#academics">Academics</a>
+      <a href="demo.html#activities">Life @ School</a>
+      <a href="demo.html#facilities">Campus</a>
+    </div>
+    <div class="foot-col">
+      <h5>Admissions</h5>
+      <a href="admissions.html">Apply Now</a>
+      <a href="admissions.html">Fee Structure</a>
+      <a href="visit.html">Book a Visit</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 Your School &mdash; All rights reserved.</span>
+    <span>Crafted with <em>care</em>.</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/918220148089" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">&#x1F4AC;</a>
+
+<script src="config.js"></script>
+<script>
+document.getElementById('visit-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = document.getElementById('visit-submit-btn');
+  const msg = document.getElementById('visit-form-msg');
+  const payload = {
+    parent_name: document.getElementById('v-parent-name').value.trim(),
+    phone: document.getElementById('v-phone').value.trim(),
+    email: document.getElementById('v-email').value.trim(),
+    child_class: document.getElementById('v-child-class').value,
+    num_visitors: document.getElementById('v-num-visitors').value,
+    preferred_date: document.getElementById('v-date').value,
+    preferred_time: document.getElementById('v-time').value,
+    notes: document.getElementById('v-notes').value.trim()
+  };
+  btn.disabled = true; btn.textContent = 'Sending...';
+  const { error } = await supabaseClient.from('visit_requests').insert(payload);
+  btn.disabled = false; btn.textContent = 'Confirm my visit \u2192';
+  msg.style.display = 'block';
+  if (error){
+    msg.style.background = '#fbe6e0'; msg.style.color = '#9a3a1a';
+    msg.textContent = "Something went wrong. Please try calling or emailing us directly.";
+    return;
+  }
+  msg.style.background = '#dfeadb'; msg.style.color = '#3a5e34';
+  msg.textContent = "Thank you! We will confirm your campus visit slot within 24 hours.";
+  this.reset();
+});
+</script>
+
+</body>
+</html>

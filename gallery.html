@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Your School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,800;9..144,1,400;9..144,1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gallery.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="demo.html">
+    <span class="logo-mark">YS</span>
+    Your<em>School</em>
+  </a>
+  <div class="nav-links">
+    <a href="demo.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="demo.html#academics">Academics</a>
+    <a href="demo.html#activities">Life @ School</a>
+    <a href="demo.html#facilities">Campus</a>
+    <a href="admissions.html" class="nav-cta">Admissions</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <h1>Every event, <em>set by set.</em></h1>
+    <p class="lead">Pick an album below to browse photos from that day &mdash; Annual Day, Sports Meet, Art Exhibition and more.</p>
+  </div>
+</div>
+
+<section class="sec" id="recent-uploads-section" style="display:none;padding-bottom:0;">
+  <div class="container">
+    <h3 style="margin-bottom:14px;">Recent uploads</h3>
+    <div id="recent-uploads-mount" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:10px;"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+
+    <!-- FOLDER GRID -->
+    <div id="folder-grid-wrap">
+      <div class="folder-grid">
+        <div class="folder-card" onclick="openAlbum('annual-day')">
+          <div class="folder-ico" style="background:linear-gradient(135deg,#5a7a4f,#1c2e26);">&#x1F4C1;</div>
+          <h3>Annual Day</h3>
+          <p>11 photos</p>
+          <div class="open">Open album &rarr;</div>
+        </div>
+        <div class="folder-card" onclick="openAlbum('sports-meet')">
+          <div class="folder-ico" style="background:linear-gradient(135deg,#c1532a,#9a3f1d);">&#x1F4C1;</div>
+          <h3>Sports Meet</h3>
+          <p>24 photos</p>
+          <div class="open">Open album &rarr;</div>
+        </div>
+        <div class="folder-card" onclick="openAlbum('art-exhibition')">
+          <div class="folder-ico" style="background:linear-gradient(135deg,#d4a017,#9a7012);">&#x1F4C1;</div>
+          <h3>Art Exhibition</h3>
+          <p>15 photos</p>
+          <div class="open">Open album &rarr;</div>
+        </div>
+        <div class="folder-card" onclick="openAlbum('science-fair')">
+          <div class="folder-ico" style="background:linear-gradient(135deg,#3d4e44,#1c2e26);">&#x1F4C1;</div>
+          <h3>Science Fair</h3>
+          <p>20 photos</p>
+          <div class="open">Open album &rarr;</div>
+        </div>
+        <div class="folder-card" onclick="openAlbum('field-trip')">
+          <div class="folder-ico" style="background:linear-gradient(135deg,#3a5530,#1c2e26);">&#x1F4C1;</div>
+          <h3>Field Trip</h3>
+          <p>16 photos</p>
+          <div class="open">Open album &rarr;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ALBUM: ANNUAL DAY -->
+    <div id="album-annual-day" class="album-view">
+      <div class="back-row" onclick="closeAlbum()">&larr; Back to albums</div>
+      <div class="album-head"><h2>Annual Day</h2><span>11 Photos</span></div>
+      <div class="photo-grid">
+        <div class="photo-tile big"><img src="images/annual-day/03-welcome-performance.jpg" alt="Welcome performance"><span>Welcome performance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/01-sword-dance.jpg" alt="Sword dance"><span>Sword dance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/02-green-saree-dance.jpg" alt="Classical dance"><span>Classical dance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/04-peacock-dance.jpg" alt="Peacock themed dance"><span>Peacock dance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/05-veena-swan-dance.jpg" alt="Veena and swan themed dance"><span>Veena &amp; swan dance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/07-lotus-swan-dance.jpg" alt="Lotus and swan themed dance"><span>Lotus &amp; swan dance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/06-kids-dance.jpg" alt="Little ones dancing"><span>Little ones dancing</span></div>
+        <div class="photo-tile"><img src="images/annual-day/08-holi-celebration.jpg" alt="Holi celebration performance"><span>Holi celebration</span></div>
+        <div class="photo-tile"><img src="images/annual-day/09-saraswati-procession.jpg" alt="Saraswati themed procession"><span>Saraswati procession</span></div>
+        <div class="photo-tile"><img src="images/annual-day/10-durga-performance.jpg" alt="Durga themed performance"><span>Durga performance</span></div>
+        <div class="photo-tile"><img src="images/annual-day/11-pink-dance.png" alt="Kids dance performance"><span>Kids dance performance</span></div>
+      </div>
+    </div>
+
+    <!-- ALBUM: SPORTS MEET -->
+    <div id="album-sports-meet" class="album-view">
+      <div class="back-row" onclick="closeAlbum()">&larr; Back to albums</div>
+      <div class="album-head"><h2>Sports Meet</h2><span>24 Photos</span></div>
+      <div class="photo-grid">
+        <div class="photo-tile big" style="background:linear-gradient(135deg,#c1532a,#9a3f1d);"><span>Track finals</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#5a7a4f,#1c2e26);"><span>Relay race</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#d4a017,#9a7012);"><span>Tug of war</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#3d4e44,#1c2e26);"><span>Cricket final</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#9a3f1d,#5a2110);"><span>Medal ceremony</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#3a5530,#1c2e26);"><span>March past</span></div>
+      </div>
+    </div>
+
+    <!-- ALBUM: ART EXHIBITION -->
+    <div id="album-art-exhibition" class="album-view">
+      <div class="back-row" onclick="closeAlbum()">&larr; Back to albums</div>
+      <div class="album-head"><h2>Art Exhibition</h2><span>15 Photos</span></div>
+      <div class="photo-grid">
+        <div class="photo-tile big" style="background:linear-gradient(135deg,#d4a017,#9a7012);"><span>Student paintings</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#5a7a4f,#1c2e26);"><span>Clay sculptures</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#c1532a,#9a3f1d);"><span>Craft corner</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#3d4e44,#1c2e26);"><span>Visitors walkthrough</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#9a3f1d,#5a2110);"><span>Best artwork awards</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#3a5530,#1c2e26);"><span>Live sketching</span></div>
+      </div>
+    </div>
+
+    <!-- ALBUM: SCIENCE FAIR -->
+    <div id="album-science-fair" class="album-view">
+      <div class="back-row" onclick="closeAlbum()">&larr; Back to albums</div>
+      <div class="album-head"><h2>Science Fair</h2><span>20 Photos</span></div>
+      <div class="photo-grid">
+        <div class="photo-tile big" style="background:linear-gradient(135deg,#3d4e44,#1c2e26);"><span>Robotics prototype</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#c1532a,#9a3f1d);"><span>Chemistry demo</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#5a7a4f,#1c2e26);"><span>Water-saving model</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#d4a017,#9a7012);"><span>Judges' round</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#9a3f1d,#5a2110);"><span>Winning team</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#3a5530,#1c2e26);"><span>Astronomy booth</span></div>
+      </div>
+    </div>
+
+    <!-- ALBUM: FIELD TRIP -->
+    <div id="album-field-trip" class="album-view">
+      <div class="back-row" onclick="closeAlbum()">&larr; Back to albums</div>
+      <div class="album-head"><h2>Field Trip</h2><span>16 Photos</span></div>
+      <div class="photo-grid">
+        <div class="photo-tile big" style="background:linear-gradient(135deg,#3a5530,#1c2e26);"><span>Museum visit</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#c1532a,#9a3f1d);"><span>Nature trail</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#d4a017,#9a7012);"><span>Group picnic</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#5a7a4f,#1c2e26);"><span>Bus ride</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#3d4e44,#1c2e26);"><span>Guided tour</span></div>
+        <div class="photo-tile" style="background:linear-gradient(135deg,#9a3f1d,#5a2110);"><span>Farewell photo</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand">Your<em>School</em>.</div>
+      <p class="foot-desc">A Matriculation co-educational school nurturing curious minds and kind humans since 1995.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <a href="demo.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="demo.html#academics">Academics</a>
+      <a href="demo.html#activities">Life @ School</a>
+    </div>
+    <div class="foot-col">
+      <h5>Admissions</h5>
+      <a href="admissions.html">Apply Now</a>
+      <a href="visit.html">Book a Visit</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 Your School &mdash; All rights reserved.</span>
+    <span>Crafted with <em>care</em>.</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/918220148089" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">&#x1F4AC;</a>
+
+<script>
+function openAlbum(id){
+  document.getElementById('folder-grid-wrap').classList.add('hidden');
+  document.querySelectorAll('.album-view').forEach(a=>a.classList.remove('open'));
+  document.getElementById('album-'+id).classList.add('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.replaceState(null,'','#'+id);
+}
+function closeAlbum(){
+  document.querySelectorAll('.album-view').forEach(a=>a.classList.remove('open'));
+  document.getElementById('folder-grid-wrap').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.replaceState(null,'',window.location.pathname);
+}
+// Open directly to an album if the URL has a matching hash (e.g. gallery.html#sports-meet)
+window.addEventListener('DOMContentLoaded',()=>{
+  const hash=window.location.hash.replace('#','');
+  if(hash && document.getElementById('album-'+hash)){
+    openAlbum(hash);
+  }
+});
+</script>
+
+<script src="config.js"></script>
+<script>
+(async function(){
+  try{
+    const { data, error } = await supabaseClient
+      .from('gallery_photos')
+      .select('*')
+      .order('created_at', { ascending:false })
+      .limit(12);
+    if (error || !data || !data.length) return;
+    const mount = document.getElementById('recent-uploads-mount');
+    mount.innerHTML = data.map(p => `
+      <div style="aspect-ratio:1;border-radius:10px;overflow:hidden;background:var(--paper-2);">
+        <img src="${p.image_url}" alt="${escUpload(p.title)}" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+    `).join('');
+    document.getElementById('recent-uploads-section').style.display = 'block';
+  }catch(e){ /* config.js not set up yet — silently skip */ }
+})();
+function escUpload(str){
+  return String(str||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+</script>
+
+</body>
+</html>
